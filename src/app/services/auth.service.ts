@@ -25,6 +25,13 @@ export class AuthService {
       httpOptions
     )
   }
+  register(username: string, password: string ) {
+    return this.http.post(
+      API+"users",
+      {username, password},
+      httpOptions
+    )
+  }
 
 
 }
