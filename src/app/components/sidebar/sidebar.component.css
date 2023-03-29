@@ -24,7 +24,11 @@
   padding: 6px 8px 16px 16px;
 }
 
-
+.username {
+  padding: 16px 8px 6px 16px;
+  font-size: 20px;
+  color: #818181;
+}
 
 .sidenav a:hover {
   color: #f1f1f1;

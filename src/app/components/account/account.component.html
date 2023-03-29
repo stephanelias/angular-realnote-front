@@ -1,0 +1,35 @@
+<app-sidebar [username]="currentUser.username"></app-sidebar>
+<div class="main">
+  <div class="container">
+    <h1>Mon compte</h1>
+
+    <div class="action">
+      <p>Nom d'utilisateur : {{ currentUser.username}}</p>
+      <p>Token Spotify :  {{ currentUser.spotifyToken}}</p>
+    </div>
+
+    <div class="action">
+      <h3>Modifier votre nom d'utilisateur</h3>
+      <!--<p>Pour modifier votre nom d'utilisateur, veuillez cliquez ici.</p>-->
+      <div class="mb-3">
+        <input [(ngModel)]="currentUser.username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{currentUser.username}}">
+      </div>
+      <button class="btn" type="button" (click)="onChangeUsername()">Modifier</button>
+      <p></p>
+      <div class="alert alert-success" role="alert" *ngIf="hasUsernameChanged == true">
+        Nom d'utilisateur modifié !
+      </div>
+    </div>
+
+    <div class="action">
+      <h3>Modifier votre mot de passe</h3>
+      <p>Pour modifier votre mot de passe, veuillez cliquez ici.</p>
+    </div>
+
+    <div class="action" *ngIf='currentUser.roles.length > 1'>
+      <h3>Vous êtes un administrateur de cette plateforme !</h3>
+      <p>Pour modifier le token Spotify de votre compte, veuillez cliquez ici.</p>
+    </div>
+  </div>
+
+</div>
