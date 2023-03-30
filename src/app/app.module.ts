@@ -10,7 +10,6 @@ import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AccountComponent } from './components/account/account.component';
-import { ChangeDataUserComponent } from './components/change-data-user/change-data-user.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { ChangeDataUserComponent } from './components/change-data-user/change-da
     RegistrationComponent,
     HomeComponent,
     SidebarComponent,
-    AccountComponent,
-    ChangeDataUserComponent
+    AccountComponent
   ],
   imports: [
     BrowserModule,
