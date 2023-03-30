@@ -4,14 +4,13 @@
     <h1>Mon compte</h1>
 
     <div class="action">
-      <p>Nom d'utilisateur : {{ currentUser.username}}</p>
-      <p>Token Spotify :  {{ currentUser.spotifyToken}}</p>
+      <p><strong>Nom d'utilisateur : </strong>{{ currentUser.username}}</p>
+      <p><strong>Token Spotify : </strong>{{ currentUser.spotifyToken}}</p>
     </div>
 
     <div class="action">
       <h3>Modifier votre nom d'utilisateur</h3>
-      <!--<p>Pour modifier votre nom d'utilisateur, veuillez cliquez ici.</p>-->
-      <div class="mb-3">
+      <div class="mb-3 col-lg-4">
         <input [(ngModel)]="currentUser.username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{currentUser.username}}">
       </div>
       <button class="btn" type="button" (click)="onChangeUsername()">Modifier</button>
@@ -23,12 +22,40 @@
 
     <div class="action">
       <h3>Modifier votre mot de passe</h3>
-      <p>Pour modifier votre mot de passe, veuillez cliquez ici.</p>
+      <p>{{newPassword}}</p>
+      <div class="mb-3 col-lg-4">
+        <input [(ngModel)]="newPassword" type="password" class="form-control" id="exampleFormControlInput2" placeholder="Votre nouveau mot de passe">
+      </div>
+      <button class="btn" type="button" (click)="onChangePassword()">Modifier</button>
+      <p></p>
+      <div class="alert alert-success" role="alert" *ngIf="hasPasswordChanged == true">
+        Mot de passe modifié !
+      </div>
     </div>
 
     <div class="action" *ngIf='currentUser.roles.length > 1'>
       <h3>Vous êtes un administrateur de cette plateforme !</h3>
-      <p>Pour modifier le token Spotify de votre compte, veuillez cliquez ici.</p>
+      <p></p>
+      <div class="mb-3 col-lg-3" *ngIf="hasSpotifyCredentials == false">
+        <label>Vous n'avez pas enregistré de Spotify Client ID. Faîtes le maintenent ! </label>
+        <input [(ngModel)]="currentUser.spotifyClientId" type="text" class="form-control" id="exampleFormControlInput3">
+      </div>
+      <p><strong>Spotify Client ID : </strong>{{currentUser.spotifyClientId}}</p>
+      <div class="mb-3 col-lg-3" *ngIf="hasSpotifyCredentials == false">
+        <label>Vous n'avez pas enregistré de Spotify Client Secret. Faîtes le maintenent ! </label>
+        <input [(ngModel)]="currentUser.spotifyClientSecret" type="text" class="form-control" id="exampleFormControlInput4">
+      </div>
+      <p><strong>Spotify Client Secret : </strong>{{currentUser.spotifyClientSecret}}</p>
+      <button class="btn" type="button" (click)="onSaveCredentials()" *ngIf="hasSpotifyCredentials == false">Enregister</button>
+      <button class="btn" type="button" (click)="onGenerateSpotifyToken()" *ngIf="hasSpotifyCredentials == true">Générer un nouveau token</button>
+      <p></p>
+      <div class="alert alert-success" role="alert" *ngIf="hasSpotifyCredentials == false && credentialsChanged == true">
+        Identifiants enregistrés !
+      </div>
+      <p></p>
+      <div class="alert alert-success" role="alert" *ngIf="hasTokenChanged == true">
+        Token généré !
+      </div>
     </div>
   </div>
 
