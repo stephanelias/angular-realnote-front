@@ -5,10 +5,10 @@ export class User {
 
   roles! : string[]
 
-  spotifyToken? : string
+  spotifyToken! : string
 
-  spotifyClientId? : string
+  spotifyClientId! : string
 
-  spotifyClientSecret? : string
+  spotifyClientSecret!: string
 
 }

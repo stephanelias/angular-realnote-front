@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AccountComponent } from './components/account/account.component';
+import { ArtistsListComponent } from './components/artists-list/artists-list.component';
+import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
+import { AddArtistComponent } from './components/add-artist/add-artist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { AccountComponent } from './components/account/account.component';
     RegistrationComponent,
     HomeComponent,
     SidebarComponent,
-    AccountComponent
+    AccountComponent,
+    ArtistsListComponent,
+    ArtistDetailsComponent,
+    AddArtistComponent
   ],
   imports: [
     BrowserModule,

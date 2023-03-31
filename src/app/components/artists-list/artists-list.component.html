@@ -1,0 +1,26 @@
+<app-sidebar [username]="currentUser.username"></app-sidebar>
+<div class="main">
+  <div class="container">
+
+    <div class="part" *ngIf="currentUser.roles.length >1">
+      <button routerLink="/artists/add" class="btn" type="button">Créer un artiste</button>
+    </div>
+
+    <div class="part">
+      <div class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="col" *ngFor="let artist of artistsList">
+          <div class="card">
+            <img src="{{artist.photoLink}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ artist.name }}</h5>
+              <p class="card-text">{{artist.type}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+    </div>
+  </div>
+</div>

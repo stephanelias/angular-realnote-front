@@ -15,7 +15,7 @@ export class HomeComponent {
 
   currentUser! : User ;
 
-  idTest : any
+  idTest! : number
 
   array1! : any []
 
@@ -31,7 +31,8 @@ export class HomeComponent {
       {
         next: (value) => {
           this.currentUser = value ;
-          console.log(value) ;
+          console.log(this.currentUser.spotifyToken) ;
+          //test
 
         },
         error : (err) => {
@@ -39,13 +40,22 @@ export class HomeComponent {
         }
       }
     ) ;
+    /*this.spotifyService.getSearchResponse("yeat",this.currentUser.spotifyToken).subscribe({
+        next: value => {
+          console.log("ok")
+         // console.log(JSON.parse(JSON.stringify(value)).artists.items[0].id);
 
-   this.spotifyService.getSpotifyId("yeat").subscribe({
-     next: value => {
-        console.log(JSON.parse(JSON.stringify(value)).artists.items[0].id);
-     }
-     }
-   )
+        },
+        error: err => console.error(this.currentUser.id)
+      }
+    )*/
+
   }
+
+  onTest() {
+
+
+  }
+
 
 }

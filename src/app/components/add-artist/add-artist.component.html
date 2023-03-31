@@ -1,0 +1,57 @@
+<app-sidebar [username]="currentUser.username"></app-sidebar>
+<div class="main">
+  <div class="container">
+    <div class="part">
+      <p>{{newArtist.name}}</p>
+      <p>({{searchZone}})</p>
+      <p>{{newArtist.photoLink}}</p>
+      <p>{{newArtist.type}}</p>
+    </div>
+    <div class="part"><h2>Ajouter un artiste</h2></div>
+    <div class="part">
+      <h3>1 - Recherchez l'artiste sur Spotify pour obtenir sa photo</h3>
+      <p></p>
+      <div class="mb-3 col-lg-5">
+        <label>Nom :</label>
+        <input [(ngModel)]="newArtist.name" class="form-control" type="text" placeholder="Recherche.." >
+      </div>
+      <div class="mb-3 col-lg-2">
+        <label>Zone :</label>
+        <input [(ngModel)]="searchZone" class="form-control" type="text" placeholder="Zone" >
+      </div>
+      <p></p>
+      <button class="btn" type="button" (click)="onSearchPhoto()">Recherche photo</button>
+    </div>
+
+    <div class="part" *ngIf="successStep1 == true">
+      <h3>2 - Sélectionnez le type de l'artiste et ajoutez l'artiste</h3>
+      <p></p>
+      <p>Photo : </p>
+      <img src="{{newArtist.photoLink}}" class="img-thumbnail mx-auto" alt="..." >
+      <p></p>
+      <div class="mb-3 col-lg-5">
+        <input [(ngModel)]="newArtist.name" class="form-control" type="text" placeholder="Recherche.." >
+      </div>
+      <p></p>
+      <div class="mb-3 col-lg-5">
+        <select [(ngModel)]="newArtist.type" class="form-select" aria-label="Default select example">
+          <option selected>Type de l'artiste</option>
+          <option value="Artiste">Artiste</option>
+          <option value="Producteur">Producteur</option>
+          <option value="Beatmaker">Beatmaker</option>
+        </select>
+      </div>
+      <p></p>
+      <button class="btn" type="button" (click)="onAddArtist()">Ajouter artiste</button>
+    </div>
+
+    <div class="part" *ngIf="successStep2 == true">
+      <div class="alert alert-success" role="alert">
+        Artiste ajouté ! <a routerLink="/artists">Retour à l'index</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

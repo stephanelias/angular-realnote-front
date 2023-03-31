@@ -1,0 +1,34 @@
+img {
+  height:185px !important;
+  width:auto !important;
+  max-width:185px !important;
+
+}
+
+.card {
+  background-color: #1E1E1E;
+  color: #818181;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #818181;
+  color: #f1f1f1;
+}
+
+.part {
+  margin-top: 25px ;
+  margin-bottom: 25px;
+}
+
+
+button {
+  background-color: #1E1E1E;
+  color: #f1f1f1;
+}
+
+button:hover {
+  background-color: #818181;
+}
+
+

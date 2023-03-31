@@ -9,9 +9,6 @@ const USER_KEY = 'auth-user';
 export class StorageService {
   constructor() {}
 
-  clean(): void {
-    window.sessionStorage.clear();
-  }
 
   public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
@@ -21,6 +18,7 @@ export class StorageService {
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
+      // Get the token by the JSON response if the nav storage is not null
       return jwtDecode(JSON.parse(user).token);
     }
     return {};

@@ -12,23 +12,8 @@ import {UserService} from "./services/user.service";
 export class AppComponent {
   title = 'RealNote';
 
-  currentUser! : User ;
-
-  constructor(private storageService: StorageService,private http: HttpClient, private userService: UserService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.userService.getCurrentUser(this.storageService.getUser().id).subscribe(
-      {
-        next: (value) => {
-          this.currentUser = value ;
-          console.log(value) ;
 
-        },
-        error : (err) => {
-          console.error(err) ;
-        }
-      }
-    ) ;
-  }
 }
